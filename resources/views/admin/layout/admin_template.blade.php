@@ -12,35 +12,12 @@
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Alegreya|Amatic+SC|Big+Shoulders+Text|Lobster|Noto+Serif|Patrick+Hand|Mitr|Cormorant|Jura|Noto+Serif|PattayaEncode+Sans+Semi+Expanded&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/admin.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="responsive.css"> -->
 </head>
 <body>
 <div class="container-fluid">
     @include('admin.layout.header')
     @include('admin.layout.sidebar')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Dashboard
-            </h1>
-            <ol class="breadcrumb">
-                <!-- li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li-->
-                <li class="active">Dashboard</li>
-            </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Your Page Content Here -->
-
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Footer -->
+    @yield('content')
 </div>
 </body>
 </html>
