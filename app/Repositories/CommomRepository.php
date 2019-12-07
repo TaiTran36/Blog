@@ -44,6 +44,24 @@ class CommonRepository
     public function update($id, $data = []) {
         return $this->model::where(['id' => $id])->update($data);
     }
+
+    public function updateMultiple($data, $table){
+        $cases = [];
+        $ids = [];
+        $params = [];
+
+        foreach ($data as  $row) {
+            $id = (int) $row['id'];
+            $cases[] = "WHEN {$id} then ?";
+            $params[] = $row['is_active'];
+            $ids[] = $id;
+        }
+        $ids = implode(',', $ids);
+        $cases = implode(' ', $cases);
+
+        return \DB::update("UPDATE `" . $table . "` SET `is_active` = CASE `id` {$cases} END
+            WHERE `id` in ({$ids})", $params);
+    }
     /**
      * Change sort order for target row and affected row
      * @param $data
