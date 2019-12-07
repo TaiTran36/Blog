@@ -22,6 +22,8 @@ Route::prefix('admin')->group(function(){
     Route::group(['middleware' => ['auth:web'], 'namespace' => 'Admin'], function() {
         Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
         Route::get('/about', 'AboutController@index')->name('admin.about.index');
+        Route::get('/theme', 'ThemeController@index')->name('admin.theme.index');
+        Route::post('/theme/update', 'ThemeController@update')->name('admin.theme.update');
     });
 });
 Route::get('/', function () {
